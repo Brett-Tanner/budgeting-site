@@ -4,7 +4,7 @@ const accessToken = Astro.cookies.get("sb-access-token");
 const refreshToken = Astro.cookies.get("sb-refresh-token");
 
 if (accessToken && refreshToken) {
-  return Astro.redirect("/dashboard");
+  return Astro.redirect("/");
 }
 ---
 
