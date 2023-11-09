@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import { supabase } from "../lib/supabase";
 
 const accessToken = Astro.cookies.get("sb-access-token");
@@ -29,13 +29,10 @@ const email = data?.user?.email;
 ---
 
 <Layout title="Welcome Brett's Budgeting Bonanza!">
-	<main>
-		<form action="/api/auth/signout">
-			<button type="submit">Sign out</button>
-		</form>
-		<form action="/api/csv/import" method="post" enctype="multipart/form-data">
-			<input type="file" name="csv" id="csv">
-			<button type="submit">Upload CSV</button>
-		</form>
-	</main>
+  <main>
+    <form action="/api/csv/import" method="post" enctype="multipart/form-data">
+      <input type="file" name="csv" id="csv" />
+      <button type="submit">Upload CSV</button>
+    </form>
+  </main>
 </Layout>

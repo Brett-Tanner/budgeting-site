@@ -11,22 +11,23 @@
     "generate": "drizzle-kit generate:pg"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.1",
+    "@astrojs/check": "^0.3.1",
     "@astrojs/tailwind": "^5.0.2",
-    "@astrojs/vercel": "^5.1.0",
+    "@astrojs/vercel": "^5.2.0",
     "@supabase/supabase-js": "^2.38.4",
-    "@vercel/postgres": "^0.5.0",
-    "astro": "^3.3.4",
+    "@vercel/postgres": "^0.5.1",
+    "astro": "^3.5.0",
     "csv-parse": "^5.5.2",
     "drizzle-orm": "^0.28.6",
-    "tailwindcss": "^3.0.24",
+    "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@vercel/node": "^3.0.7",
-    "bun-types": "^1.0.7",
+    "@vercel/node": "^3.0.9",
+    "bun-types": "^1.0.11",
     "dotenv": "^16.3.1",
     "dotenv-expand": "^10.0.0",
-    "drizzle-kit": "^0.19.13"
+    "drizzle-kit": "^0.20.0",
+    "npm-check-updates": "^16.14.6"
   }
 }
