@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { TransactionUploadApp } from "../../components/transactions/TransactionUploadApp";
+---
+
+<Layout title="Upload CSV Transactions">
+  <TransactionUploadApp
+    parseUrl={`${Astro.url.origin}/api/csv/parse`}
+    uploadUrl={`${Astro.url.origin}/api/csv/upload`}
+    client:load
+  />
+</Layout>

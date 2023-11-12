@@ -28,9 +28,6 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Welcome Brett's Budgeting Bonanza!">
   <main>
-    <form action="/api/csv/import" method="post" enctype="multipart/form-data">
-      <input type="file" name="csv" id="csv" />
-      <button type="submit">Upload CSV</button>
-    </form>
+    <a href="/transactions/upload">Upload Transactions</a>
   </main>
 </Layout>
