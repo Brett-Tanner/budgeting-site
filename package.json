@@ -16,7 +16,6 @@
     "@astrojs/tailwind": "^5.0.2",
     "@astrojs/vercel": "^5.2.0",
     "@supabase/supabase-js": "^2.38.4",
-    "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@vercel/postgres": "^0.5.1",
     "astro": "^3.5.0",
@@ -30,6 +29,7 @@
   },
   "devDependencies": {
     "@types/encoding-japanese": "^2.0.4",
+    "@types/react": "^18.2.37",
     "@vercel/node": "^3.0.9",
     "bun-types": "^1.0.11",
     "dotenv": "^16.3.1",
