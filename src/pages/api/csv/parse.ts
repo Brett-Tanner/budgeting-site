@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { string } from "astro/zod";
 import { parse } from "csv-parse";
 import Encoding from "encoding-japanese";
 
@@ -18,10 +19,23 @@ export const POST: APIRoute = async ({ request }) => {
 
 async function parseCSV(csv: ReadableStream<Uint8Array>) {
   return new Promise(async (resolve) => {
-    const transactions: transaction[] = [];
+    const transactions: parsedTransaction[] = [];
 
     const cavReader = csv.getReader();
-    const parser = parse();
+    const parser = parse({
+      columns: [
+        "date",
+        "code",
+        "details",
+        "withdrawal",
+        "deposit",
+        "balance",
+        "memo",
+        "uncleared_funds",
+        "classification",
+      ],
+      from_line: 2,
+    });
     parser.on("readable", function () {
       let transaction;
       while ((transaction = parser.read()) !== null) {
