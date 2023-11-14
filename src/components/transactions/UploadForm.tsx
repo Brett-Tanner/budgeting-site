@@ -3,11 +3,18 @@ import type { FormEvent } from "react";
 interface props {
   parseUrl: string;
   setTransactions: React.Dispatch<
-    React.SetStateAction<transaction[] | undefined>
+    React.SetStateAction<parsedTransaction[] | undefined>
+  >;
+  setCategories: React.Dispatch<
+    React.SetStateAction<retrievedCategory[] | undefined>
   >;
 }
 
-export function UploadForm({ parseUrl, setTransactions }: props) {
+export function UploadForm({
+  parseUrl,
+  setCategories,
+  setTransactions,
+}: props) {
   async function parseTransactions(e: FormEvent) {
     e.preventDefault();
     if (e.currentTarget instanceof HTMLFormElement) {
@@ -20,7 +27,11 @@ export function UploadForm({ parseUrl, setTransactions }: props) {
         headers: headers,
         body: csv,
       }).catch((reason) => console.log(reason));
-      if (response) setTransactions(await response.json());
+      if (response) {
+        const responseObject = await response.json();
+        setTransactions(responseObject.transactions);
+        setCategories(responseObject.categories);
+      }
     }
   }
 

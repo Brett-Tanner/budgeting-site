@@ -1,11 +1,12 @@
 import { TransactionFields } from "./TransactionFields";
 
 interface props {
+  categories: retrievedCategory[];
   transactions: parsedTransaction[];
   uploadUrl: string;
 }
 
-export function EditForm({ transactions }: props) {
+export function EditForm({ categories, transactions }: props) {
   return (
     <form onSubmit={() => {}}>
       <table>
@@ -13,6 +14,7 @@ export function EditForm({ transactions }: props) {
           <tr>
             <th>Date</th>
             <th>Description</th>
+            <th>Category</th>
             <th>Change</th>
             <th>Balance</th>
           </tr>
@@ -20,7 +22,8 @@ export function EditForm({ transactions }: props) {
         <tbody>
           {transactions.map((t) => (
             <TransactionFields
-              transaction={t}
+              categories={categories}
+              t={t}
               key={t.details.concat(t.balance)}
             />
           ))}

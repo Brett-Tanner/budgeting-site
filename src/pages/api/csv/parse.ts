@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-import { string } from "astro/zod";
 import { parse } from "csv-parse";
 import Encoding from "encoding-japanese";
 
@@ -10,11 +9,20 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
   const transactions = await parseCSV(request.body);
+  // TODO: replace this with actual logic
+  const testCategories = [
+    { id: 1, name: "Food", parent_id: null },
+    { id: 2, name: "Groceries", parent_id: 1 },
+    { id: 3, name: "Games", parent_id: null },
+  ];
 
-  return new Response(JSON.stringify(transactions), {
-    status: 200,
-    headers: { "content-type": "application/json" },
-  });
+  return new Response(
+    JSON.stringify({ transactions: transactions, categories: testCategories }),
+    {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    },
+  );
 };
 
 async function parseCSV(csv: ReadableStream<Uint8Array>) {

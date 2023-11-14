@@ -7,11 +7,24 @@ interface props {
 }
 
 export function TransactionUploadApp({ parseUrl, uploadUrl }: props) {
-  const [transactions, setTransactions] = useState<transaction[]>();
+  const [transactions, setTransactions] = useState<parsedTransaction[]>();
+  const [categories, setCategories] = useState<retrievedCategory[]>();
 
-  if (transactions && transactions.length > 0) {
-    return <EditForm transactions={transactions} uploadUrl={uploadUrl} />;
+  if (transactions && categories && transactions.length > 0) {
+    return (
+      <EditForm
+        categories={categories}
+        transactions={transactions}
+        uploadUrl={uploadUrl}
+      />
+    );
   } else {
-    return <UploadForm setTransactions={setTransactions} parseUrl={parseUrl} />;
+    return (
+      <UploadForm
+        parseUrl={parseUrl}
+        setCategories={setCategories}
+        setTransactions={setTransactions}
+      />
+    );
   }
 }
